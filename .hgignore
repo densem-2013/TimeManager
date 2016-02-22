@@ -1,0 +1,12 @@
+syntax: glob
+*.user
+*/obj/*
+*/*bin*/*
+*.ncb
+*.suo
+*/_ReSharper*/*
+*.sln.cache
+*/*report.xml
+*/*.db
+*/*vs10x*
+*/*hibernate.cfg.xml*

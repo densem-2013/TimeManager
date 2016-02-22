@@ -1,0 +1,1397 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Infocom.IT.ILibrary.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Infocom.IT.ILibrary.Xml.XmlValidator">
+            <summary>
+            Gives opportunities to validate an xml by an xsd schema
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Xml.XmlValidator.Validate(System.Xml.Linq.XDocument,System.String,System.String)">
+            <summary>
+            Validates <paramref name="xDocument"/> by the 
+            <paramref name="schema"/>
+            </summary>
+            <param name="xDocument">Document to validate</param>
+            <param name="schema">XSD schema that will be used to validate the
+            document</param>
+            <param name="targetNamespace">Target namespase mentioned in the xsd
+            </param>
+            <exception cref="T:Infocom.IT.ILibrary.Xml.XmlValidationException">The 
+            <c>XmlValidationException</c> will be thrown if error occurs. All
+            exception details can be found in the Errors property. 
+            </exception>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Xml.XmlValidator.Validate(System.Xml.Linq.XDocument,System.String)">
+            <summary>
+            Validates <paramref name="xDocument"/> by the 
+            <paramref name="schema"/>. Expecting that the target namespase is an
+            empty string
+            </summary>
+            <param name="xDocument">Document to validate</param>
+            <param name="schema">XSD schema that will be used to validate the
+            document bear</param>
+            <exception cref="T:Infocom.IT.ILibrary.Xml.XmlValidationException">The 
+            <c>XmlValidationException</c> will be thrown if error occurs.
+            </exception>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Collections.ObjectsMap`2">
+            <summary>
+            Represent a map for an identifiable classes
+            </summary>
+            <typeparam name="TIdType">The Type of the Id</typeparam>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Collections.ObjectsMap`2.GetKeyForItem(`0)">
+            <summary>
+            Returns the Id of the object
+            </summary>
+            <param name="item">An identifiable object</param>
+            <returns>The Id of the object</returns>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Collections.IIdentifiable`1">
+            <summary>
+            Contract for objects that can be identified
+            </summary>
+            <typeparam name="TIdType">The code-system for the language (typically an <see cref="T:System.Enum"/>)</typeparam>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Collections.IIdentifiable`1.GetId">
+            <summary>
+            Returns the Id of the object 
+            </summary>
+            <returns>The object Id</returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.WCF.Hosting.ServiceHost`1.AddErrorHandler(System.ServiceModel.Dispatcher.IErrorHandler)">
+            <summary>
+            Can only call before openning the host
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.WCF.Hosting.ServiceHost`1.EnableMetadataExchange">
+            <summary>
+            Can only call before openning the host
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.WCF.Hosting.ServiceHost`1.Throttle">
+            <summary>
+            Can only call after openning the host
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.WCF.Hosting.ServiceHost`1.IncludeExceptionDetailInFaults">
+            <summary>
+            Can only call before openning the host
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.WCF.Hosting.ServiceHost`1.SecurityAuditEnabled">
+            <summary>
+            Can only call before openning the host
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Logging.LogProxyService">
+            <summary>
+            Represent a service that hosts a LogProxy.
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.Logging.LogProxyService._broker">
+            <summary>
+            An instance of the LogProxy
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.LogProxyService.OnStart(System.String[])">
+            <summary>
+            Initialize a LogProxy object.
+            </summary>
+            <param name="args">Input arguments</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.LogProxyService.OnStop">
+            <summary>
+            Disposes the LogProxy object
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions">
+            <summary>
+            Represent an Extension Methods for the <see cref="T:System.Data.Common.DbDataReader"/> class.
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue(System.Data.Common.DbDataReader,System.String,System.Object)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by specified object. 
+            </summary>
+            <param name="reader">The source for the extension.</param>
+            <param name="fieldName">The name of the field.</param>
+            <param name="ifNullValue">The replacer for the <see cref="T:System.DBNull"/>
+            value.</param>
+            <returns>The value of the specified column or the 
+            <see cref="T:System.DBNull"/>-replacer.</returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue(System.Data.Common.DbDataReader,System.Int32,System.Object)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by specified object. 
+            </summary>
+            <param name="reader">The source for the extension.</param>
+            <param name="ordinal">The Zero-based column ordinal.</param>
+            <param name="ifNullValue">The replaces for the <see cref="T:System.DBNull"/>
+            value.</param>
+            <returns>The value of the specified column or the 
+            <see cref="T:System.DBNull"/>-replacer.</returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue``1(System.Data.Common.DbDataReader,System.String)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by the default value of the 
+            <typeparamref name="TResult"/> class.  
+            </summary>
+            <typeparam name="TResult">An expected return type.</typeparam>
+            <param name="reader">The source for the extension.</param>
+            <param name="fieldName">The name of the field.</param>
+            <returns>The value of the specified column or the default value of
+            the <typeparamref name="TResult"/> .</returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue``1(System.Data.Common.DbDataReader,System.Int32)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by the default value of the 
+            <typeparamref name="TResult"/> class.  
+            </summary>
+            <typeparam name="TResult">An expected return type.</typeparam>
+            <param name="reader">The source for the extension.</param>
+            <param name="ordinal">The Zero-based column ordinal.</param>
+            <returns>The value of the specified column or the default value of
+            the <typeparamref name="TResult"/> .</returns>        
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue``1(System.Data.Common.DbDataReader,System.String,``0)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by the <paramref name="nullValueReplacer"/>
+            value.
+            </summary>
+            <typeparam name="TResult">An expected return type.</typeparam>
+            <param name="reader">The source for the extension.</param>
+            <param name="fieldName">The name of the field.</param>
+            <param name="nullValueReplacer">The replacer for the <see cref="T:System.DBNull"/>
+            value.</param>
+            <returns>The value of the specified column or the 
+            <see cref="T:System.DBNull"/>-replacer.</returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Extensions.DbDataReaderExtensions.GetValue``1(System.Data.Common.DbDataReader,System.Int32,``0)">
+            <summary>
+            Gets the value of the specified column, replaces the value in case
+            of <see cref="T:System.DBNull"/> by the <paramref name="nullValueReplacer"/>
+            value.
+            </summary>
+            <typeparam name="TResult">An expected return type.</typeparam>
+            <param name="reader">The source for the extension.</param>
+            <param name="ordinal">The Zero-based column ordinal.</param>
+            <param name="nullValueReplacer">The replacer for the <see cref="T:System.DBNull"/>
+            value.</param>
+            <returns>The value of the specified column or the 
+            <see cref="T:System.DBNull"/>-replacer.</returns>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1">
+            <summary>
+            Represent an item for the <see cref="T:Infocom.IT.ILibrary.MultiLang.MultiLangString`1"/> class
+            </summary>
+            <typeparam name="TCode">The code-system for the language (typically an <see cref="T:System.Enum"/>)</typeparam>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1.#ctor(`0,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1"/> class.
+            </summary>
+            <param name="code">
+            The language code.
+            </param>
+            <param name="value">
+            The value for the language code.
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1.GetId">
+            <summary>
+            Returns the Id of the object
+            </summary>
+            <returns>The Id of the class</returns>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1.Id">
+            <summary>
+            Gets or sets the Id of the language
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.MultiLang.MultiLangStringItem`1.Value">
+            <summary>
+            Gets or sets the value of the language
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1">
+            <summary>
+            ISO 639-1:2002, Codes for the representation of names of languages — Part 1: Alpha-2 code, 
+            is the first part of the ISO 639 series of international standards for language codes. 
+            Part 1 covers the registration of two-letter codes. 
+            There are 136 two-letter codes registered. 
+            The registered codes cover the world's major languages.
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.aa">
+            <summary>
+            The Afar language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ab">
+            <summary>
+            The Abkhazian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.af">
+            <summary>
+            The Afrikaans language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ak">
+            <summary>
+            The Akan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.am">
+            <summary>
+            The Amharic language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ar">
+            <summary>
+            The Arabic language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.an">
+            <summary>
+            The Aragonese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1._as">
+            <summary>
+            The Assamese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.av">
+            <summary>
+            The Avaric language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ae">
+            <summary>
+            The Avestan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ay">
+            <summary>
+            The Aymara language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.az">
+            <summary>
+            The Azerbaijani language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ba">
+            <summary>
+            The Bashkir language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bm">
+            <summary>
+            The Bambara language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.be">
+            <summary>
+            The Belarusian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bn">
+            <summary>
+            The Bengali language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bi">
+            <summary>
+            The Bislama language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bo">
+            <summary>
+            The Tibetan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bs">
+            <summary>
+            The Bosnian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.br">
+            <summary>
+            The Breton language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.bg">
+            <summary>
+            The Bulgarian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ca">
+            <summary>
+            The Catalan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.cs">
+            <summary>
+            The Czech language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ch">
+            <summary>
+            The Chamorro language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ce">
+            <summary>
+            The Chechen language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.cu">
+            <summary>
+            The Church Slavic language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.cv">
+            <summary>
+            The Chuvash language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kw">
+            <summary>
+            The Cornish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.co">
+            <summary>
+            The Corsican language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.cr">
+            <summary>
+            The Cree language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.cy">
+            <summary>
+            The Welsh language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.da">
+            <summary>
+            The Danish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.de">
+            <summary>
+            The German language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.dv">
+            <summary>
+            The Dhivehi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.dz">
+            <summary>
+            The Dzongkha language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.el">
+            <summary>
+            The Modern Greek (1453-) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.en">
+            <summary>
+            The English language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.eo">
+            <summary>
+            The Esperanto language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.et">
+            <summary>
+            The Estonian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.eu">
+            <summary>
+            The Basque language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ee">
+            <summary>
+            The Ewe language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fo">
+            <summary>
+            The Faroese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fa">
+            <summary>
+            The Persian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fj">
+            <summary>
+            The Fijian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fi">
+            <summary>
+            The Finnish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fr">
+            <summary>
+            The French language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.fy">
+            <summary>
+            The Western Frisian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ff">
+            <summary>
+            The Fulah language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.gd">
+            <summary>
+            The Scottish Gaelic language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ga">
+            <summary>
+            The Irish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.gl">
+            <summary>
+            The Galician language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.gv">
+            <summary>
+            The Manx language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.gn">
+            <summary>
+            The Guarani language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.gu">
+            <summary>
+            The Gujarati language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ht">
+            <summary>
+            The Haitian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ha">
+            <summary>
+            The Hausa language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sh">
+            <summary>
+            The Serbo-Croatian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.he">
+            <summary>
+            The Hebrew language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.hz">
+            <summary>
+            The Herero language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.hi">
+            <summary>
+            The Hindi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ho">
+            <summary>
+            The Hiri Motu language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.hr">
+            <summary>
+            The Croatian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.hu">
+            <summary>
+            The Hungarian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.hy">
+            <summary>
+            The Armenian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ig">
+            <summary>
+            The Igbo language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.io">
+            <summary>
+            The Ido language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ii">
+            <summary>
+            The Sichuan Yi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.iu">
+            <summary>
+            The Inuktitut language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ie">
+            <summary>
+            The Interlingue language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ia">
+            <summary>
+            The Interlingua (International Auxiliary Language Association) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.id">
+            <summary>
+            The Indonesian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ik">
+            <summary>
+            The Inupiaq language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1._is">
+            <summary>
+            The Icelandic language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.it">
+            <summary>
+            The Italian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.jv">
+            <summary>
+            The Javanese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ja">
+            <summary>
+            The Japanese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kl">
+            <summary>
+            The Kalaallisut language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kn">
+            <summary>
+            The Kannada language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ks">
+            <summary>
+            The Kashmiri language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ka">
+            <summary>
+            The Georgian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kr">
+            <summary>
+            The Kanuri language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kk">
+            <summary>
+            The Kazakh language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.km">
+            <summary>
+            The Central Khmer language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ki">
+            <summary>
+            The Kikuyu language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.rw">
+            <summary>
+            The Kinyarwanda language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ky">
+            <summary>
+            The Kirghiz language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kv">
+            <summary>
+            The Komi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kg">
+            <summary>
+            The Kongo language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ko">
+            <summary>
+            The Korean language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.kj">
+            <summary>
+            The Kuanyama language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ku">
+            <summary>
+            The Kurdish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lo">
+            <summary>
+            The Lao language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.la">
+            <summary>
+            The Latin language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lv">
+            <summary>
+            The Latvian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.li">
+            <summary>
+            The Limburgan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ln">
+            <summary>
+            The Lingala language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lt">
+            <summary>
+            The Lithuanian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lb">
+            <summary>
+            The Luxembourgish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lu">
+            <summary>
+            The Luba-Katanga language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.lg">
+            <summary>
+            The Ganda language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mh">
+            <summary>
+            The Marshallese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ml">
+            <summary>
+            The Malayalam language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mr">
+            <summary>
+            The Marathi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mk">
+            <summary>
+            The Macedonian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mg">
+            <summary>
+            The Malagasy language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mt">
+            <summary>
+            The Maltese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mn">
+            <summary>
+            The Mongolian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.mi">
+            <summary>
+            The Maori language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ms">
+            <summary>
+            The Malay (macrolanguage) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.my">
+            <summary>
+            The Burmese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.na">
+            <summary>
+            The Nauru language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nv">
+            <summary>
+            The Navajo language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nr">
+            <summary>
+            The South Ndebele language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nd">
+            <summary>
+            The North Ndebele language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ng">
+            <summary>
+            The Ndonga language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ne">
+            <summary>
+            The Nepali language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nl">
+            <summary>
+            The Dutch language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nn">
+            <summary>
+            The Norwegian Nynorsk language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.nb">
+            <summary>
+            The Norwegian Bokmål language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.no">
+            <summary>
+            The Norwegian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ny">
+            <summary>
+            The Nyanja language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.oc">
+            <summary>
+            The Occitan (post 1500) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.oj">
+            <summary>
+            The Ojibwa language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.or">
+            <summary>
+            The Oriya language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.om">
+            <summary>
+            The Oromo language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.os">
+            <summary>
+            The Ossetian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.pa">
+            <summary>
+            The Panjabi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.pi">
+            <summary>
+            The Pali language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.pl">
+            <summary>
+            The Polish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.pt">
+            <summary>
+            The Portuguese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ps">
+            <summary>
+            The Pushto language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.qu">
+            <summary>
+            The Quechua language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.rm">
+            <summary>
+            The Romansh language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ro">
+            <summary>
+            The Romanian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.rn">
+            <summary>
+            The Rundi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ru">
+            <summary>
+            The Russian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sg">
+            <summary>
+            The Sango language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sa">
+            <summary>
+            The Sanskrit language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.si">
+            <summary>
+            The Sinhala language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sk">
+            <summary>
+            The Slovak language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sl">
+            <summary>
+            The Slovenian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.se">
+            <summary>
+            The Northern Sami language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sm">
+            <summary>
+            The Samoan language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sn">
+            <summary>
+            The Shona language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sd">
+            <summary>
+            The Sindhi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.so">
+            <summary>
+            The Somali language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.st">
+            <summary>
+            The Southern Sotho language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.es">
+            <summary>
+            The Spanish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sq">
+            <summary>
+            The Albanian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sc">
+            <summary>
+            The Sardinian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sr">
+            <summary>
+            The Serbian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ss">
+            <summary>
+            The Swati language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.su">
+            <summary>
+            The Sundanese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sw">
+            <summary>
+            The Swahili (macrolanguage) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.sv">
+            <summary>
+            The Swedish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ty">
+            <summary>
+            The Tahitian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ta">
+            <summary>
+            The Tamil language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tt">
+            <summary>
+            The Tatar language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.te">
+            <summary>
+            The Telugu language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tg">
+            <summary>
+            The Tajik language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tl">
+            <summary>
+            The Tagalog language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.th">
+            <summary>
+            The Thai language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ti">
+            <summary>
+            The Tigrinya language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.to">
+            <summary>
+            The Tonga (Tonga Islands) language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tn">
+            <summary>
+            The Tswana language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ts">
+            <summary>
+            The Tsonga language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tk">
+            <summary>
+            The Turkmen language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tr">
+            <summary>
+            The Turkish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.tw">
+            <summary>
+            The Twi language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ug">
+            <summary>
+            The Uighur language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.uk">
+            <summary>
+            The Ukrainian language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ur">
+            <summary>
+            The Urdu language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.uz">
+            <summary>
+            The Uzbek language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.ve">
+            <summary>
+            The Venda language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.vi">
+            <summary>
+            The Vietnamese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.vo">
+            <summary>
+            The Volapük language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.wa">
+            <summary>
+            The Walloon language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.wo">
+            <summary>
+            The Wolof language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.xh">
+            <summary>
+            The Xhosa language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.yi">
+            <summary>
+            The Yiddish language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.yo">
+            <summary>
+            The Yoruba language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.za">
+            <summary>
+            The Zhuang language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.zh">
+            <summary>
+            The Chinese language
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.LangCodesIso639_1.zu">
+            <summary>
+            The Zulu language
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Logging.Extensions.ProcessModuleInfo">
+            <summary>
+            A stub class that hold info for a specific module
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Extensions.ProcessModuleInfo.ModuleName">
+            <summary>
+            Gets or sets a name of the module
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Extensions.ProcessModuleInfo.FileVersionInfo">
+            <summary>
+            Gets or sets a complete file version info
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Extensions.ProcessModuleInfo.FileName">
+            <summary>
+            Gets or sets a path to the module
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.MultiLang.MultiLangString`1">
+            <summary>
+            Represents a container for working with multiple languages 
+            </summary>
+            <typeparam name="TCode">The code-system for the language (typically an <see cref="T:System.Enum"/>)</typeparam>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.MultiLang.MultiLangString`1._items">
+            <summary>
+            Placeholder for items
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.MultiLang.MultiLangString`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infocom.IT.ILibrary.MultiLang.MultiLangString`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.MultiLang.MultiLangString`1.#ctor(`0,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Infocom.IT.ILibrary.MultiLang.MultiLangString`1"/> class.
+            </summary>
+            <param name="code">The language code.</param>
+            <param name="value">The value for the language code.</param>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.MultiLang.MultiLangString`1.Items">
+            <summary>
+            Gets or sets all values
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.MultiLang.MultiLangString`1.Item(`0)">
+            <summary>
+            Gets or sets a value to the specified language
+            </summary>
+            <param name="id">The Id of the language</param>
+            <returns>The value for the given language Id</returns>
+            <remarks>A new element will be created if the given Id is not exists in the collection</remarks>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener">
+            <summary>
+            Represent distributed trace listener. 
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.LOGICAL_NAME_KEY">
+            <summary>
+            The name of the Logical Name Key in the attribute collection. 
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.REMOTE_ADDRESS_KEY">
+            <summary>
+            The name of the Remote Address Key in the attribute collection.
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener._defaultLoggerServiceAddress">
+            <summary>
+            Default address of the logger service.
+            </summary>
+        </member>
+        <member name="F:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener._proxy">
+            <summary>
+            The proxy class for the tracer.
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Initialize(Infocom.IT.ILibrary.Logging.LoggerProxy,System.Boolean)">
+            <summary>
+            Initializes proxy field.
+            </summary>
+            <param name="proxy">
+            &gt;The <see cref="T:Infocom.IT.ILibrary.Logging.LoggerProxy"/> instance.
+            </param>
+            <param name="forceInitialization">
+            The value indicating whether to force proxy initialization.  
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Initialize(Infocom.IT.ILibrary.Logging.LoggerProxy)">
+            <summary>
+            Initializes proxy field.
+            </summary>
+            <param name="proxy">
+            &gt;The <see cref="T:Infocom.IT.ILibrary.Logging.LoggerProxy"/> instance.
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Initialize">
+            <summary>
+            Initializes current instance. 
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Called when new data should be handled.
+            </summary>
+            <param name="eventCache">
+            The event cache.
+            </param>
+            <param name="source">
+            The source.
+            </param>
+            <param name="eventType">
+            The event type.
+            </param>
+            <param name="id">
+            The id.
+            </param>
+            <param name="data">
+            The data.
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Write(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Performs writing <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry"/> to the log.
+            </summary>
+            <param name="logItem">The item to log.</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Write(System.String)">
+            <summary>
+            Performs writing message to the log.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.WriteLine(System.String)">
+            <summary>
+            Performs writing message line to the log.
+            </summary>
+            <param name="message">The message to log.</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.CreateProxy(System.String)">
+            <summary>
+            Constructs a <see cref="T:Infocom.IT.ILibrary.Logging.LoggerProxy"/> class instance.
+            </summary>
+            <param name="remoteAddress">
+            The remote address.
+            </param>
+            <returns>
+            An instance of the <see cref="T:Infocom.IT.ILibrary.Logging.LoggerProxy"/> instance.
+            </returns>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.Initialize(System.Boolean)">
+            <summary>
+            Initializes current instance. 
+            </summary>
+            <param name="forceInitialization">
+            The value indicating whether to force proxy initialization.  
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.InstallProxy(Infocom.IT.ILibrary.Logging.LoggerProxy)">
+            <summary>
+            Initializes proxy field.
+            </summary>
+            <param name="proxy">The <see cref="T:Infocom.IT.ILibrary.Logging.LoggerProxy"/> instance.</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.OverrideExtendedProperties(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Perform extra processing on Extended Properties. 
+            </summary>
+            <param name="logEntry">
+            The log entry.
+            </param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.InitializeLazyFields(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Initializes all lazy-fields on given <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry"/>.
+            </summary>
+            <param name="logItem">
+            The log item.
+            </param>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.IsInitialized">
+            <summary>
+            Gets or sets a value indicating whether the object in initialized state.
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.DefaultLoggerServiceAddress">
+            <summary>
+            Gets or sets default address of the logger service.
+            </summary>
+        </member>
+        <member name="P:Infocom.IT.ILibrary.Logging.Listeners.DistributedTraceListener.LogicalName">
+            <summary>
+            Gets or sets the logical name of the Application instance.
+            </summary>
+        </member>
+        <member name="T:Infocom.IT.ILibrary.Logging.Extensions.LoggerExtensions">
+            <summary>
+            Provides with extension methods for the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter"/>
+            </summary>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Extensions.LoggerExtensions.Write(Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter,System.String,Infocom.IT.ILibrary.Logging.Extensions.ExtraObject[])">
+            <summary>
+            Write <paramref name="message"/> and an array of 
+            <see cref="T:Infocom.IT.ILibrary.Logging.Extensions.ExtraObject"/> to the log
+            </summary>
+            <param name="logger">Binded object</param>
+            <param name="message">Message to log</param>
+            <param name="extraObjects">An array of an extras to log</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Extensions.LoggerExtensions.Write(Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter,System.String,System.Exception,Infocom.IT.ILibrary.Logging.Extensions.ExtraObject[])">
+            <summary>
+            Write <paramref name="message"/> with an Exception object as well as
+            array of <see cref="T:Infocom.IT.ILibrary.Logging.Extensions.ExtraObject"/> to the log
+            </summary>
+            <param name="logger">Binded object</param>
+            <param name="message">Message to log</param>
+            <param name="ex">Exception object that will be parsed and logged</param>
+            <param name="extraObjects">An array of an extras to log</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Extensions.LoggerExtensions.Write(Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter,System.String,System.Exception)">
+            <summary>
+            Write <paramref name="message"/> with an Exception object
+            </summary>
+            <param name="logger">Binded object</param>
+            <param name="message">Message to log</param>
+            <param name="ex">Exception object that will be parsed and logged</param>
+        </member>
+        <member name="M:Infocom.IT.ILibrary.Logging.Extensions.LoggerExtensions.LogLoadedAssemblies(Microsoft.Practices.EnterpriseLibrary.Logging.LogWriter)">
+            <summary>
+            Write all loaded assemblies to a log
+            </summary>
+            <param name="logger">Binded object</param>
+        </member>
+    </members>
+</doc>

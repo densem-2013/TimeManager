@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3C8A7995-1215-453F-83C2-3F77785A9061}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infocom.TimeManager.Core</RootNamespace>
+    <AssemblyName>Infocom.TimeManager.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Services\Infocom.IT.Department.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\lib\Mapping\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\..\lib\ORM\NHibernate\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.NinjectAdapter">
+      <HintPath>..\..\lib\IOC\Ninject\extensions\CommonServiceLocator.NinjectAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfOrm">
+      <HintPath>..\..\lib\ORM\ConfOrm\ConfOrm.dll</HintPath>
+    </Reference>
+    <Reference Include="ConfOrm.Shop">
+      <HintPath>..\..\lib\ORM\ConfOrm\ConfOrm.Shop.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ORM\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Infocom.IT.ILibrary.Core">
+      <HintPath>..\..\lib\Infocom\ILIbrary\Infocom.IT.ILibrary.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\lib\Microsoft\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\lib\Microsoft\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging">
+      <HintPath>..\..\lib\Microsoft\EnterpriseLibrary\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\IOC\Ninject\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\lib\ORM\NHibernate\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\..\lib\ORM\NHibernate\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Validator, Version=1.3.0.4000, Culture=neutral, PublicKeyToken=70154e18752585bd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ORM\NHibernate.Validation\NHibernate.Validator.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\lib\IOC\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\IOC\Ninject\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DomainModel\AbstractFlexibleCollection.cs" />
+    <Compile Include="DomainModel\Contract.cs" />
+    <Compile Include="DomainModel\ContractType.cs" />
+    <Compile Include="DomainModel\EmployeeRate.cs" />
+    <Compile Include="DomainModel\ProjectPriority.cs" />
+    <Compile Include="DomainModel\vwProjectDetailsWithSpentTimeByBudgetAllocation.cs" />
+    <Compile Include="DomainModel\Customer.cs" />
+    <Compile Include="DomainModel\Department.cs" />
+    <Compile Include="DomainModel\DomailEntityType.cs" />
+    <Compile Include="DomainModel\DomainObject.cs" />
+    <Compile Include="DomainModel\LinkCollection.cs" />
+    <Compile Include="DomainModel\PersistedEntityAttribute.cs" />
+    <Compile Include="DomainModel\Phase.cs" />
+    <Compile Include="DomainModel\ProjectBudget.cs" />
+    <Compile Include="DomainModel\ProjectBudgetAllocation.cs" />
+    <Compile Include="DomainModel\Repositories\IEmployeeRepository.cs" />
+    <Compile Include="DomainModel\Repositories\IProjectRepository.cs" />
+    <Compile Include="DomainModel\Repositories\IStatusRepository.cs" />
+    <Compile Include="DomainModel\Repositories\ITimeRecordRepository.cs" />
+    <Compile Include="DomainModel\Repositories\ITimeSheetRepository.cs" />
+    <Compile Include="DomainModel\Repositories\ProjectType.cs" />
+    <Compile Include="DomainModel\Repositories\TimeRecordRepository.cs" />
+    <Compile Include="DomainModel\Repositories\EmployeeRepository.cs" />
+    <Compile Include="DomainModel\Repositories\IRepository.cs" />
+    <Compile Include="DomainModel\Repositories\ITaskRepository.cs" />
+    <Compile Include="DomainModel\Repositories\ObjectNotFoundException.cs" />
+    <Compile Include="DomainModel\Repositories\ProjectRepository.cs" />
+    <Compile Include="DomainModel\Repositories\RepositoryBase.cs" />
+    <Compile Include="DomainModel\Repositories\StatusRepository.cs" />
+    <Compile Include="DomainModel\Repositories\TaskRepository.cs" />
+    <Compile Include="DomainModel\Repositories\TimeSheetRepository.cs" />
+    <Compile Include="DomainModel\Request.cs" />
+    <Compile Include="DomainModel\RequestDetail.cs" />
+    <Compile Include="DomainModel\RequestDetailType.cs" />
+    <Compile Include="DomainModel\RequestType.cs" />
+    <Compile Include="DomainModel\Status.cs" />
+    <Compile Include="DomainModel\Employee.cs" />
+    <Compile Include="DomainModel\Project.cs" />
+    <Compile Include="DomainModel\Task.cs" />
+    <Compile Include="DomainModel\TimeRecord.cs" />
+    <Compile Include="DomainModel\ProjectType.cs" />
+    <Compile Include="DomainModel\TimeSheet.cs" />
+    <Compile Include="DomainModel\TimeSheetType.cs" />
+    <Compile Include="DomainModel\Validators\MessageInterpolator.cs" />
+    <Compile Include="DomainModel\Validators\MaximumDateTimeAttribute.cs" />
+    <Compile Include="DomainModel\Validators\MinimumDateTimeAttribute.cs" />
+    <Compile Include="DomainModel\vwRequest.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\NHibernateExtensions.cs" />
+    <Compile Include="PersistenceInjection.cs" />
+    <Compile Include="DomainModel\ProjectPriorityVariant.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Dto\EmployeeDto.cs" />
+    <Compile Include="Services\Dto\ProjectDto.cs" />
+    <Compile Include="Services\Dto\TaskDto.cs" />
+    <Compile Include="Services\Dto\DtoAssembler.cs" />
+    <Compile Include="Services\Dto\TimeRecordDto.cs" />
+    <Compile Include="Services\ITaskManagement.cs" />
+    <Compile Include="Services\NHibernateContext.cs" />
+    <Compile Include="Services\NHibernateContextAttribute.cs" />
+    <Compile Include="Services\NHibernateContextExension.cs" />
+    <Compile Include="Services\NHibernateContextInitializer.cs" />
+    <Compile Include="Services\TaskManagement.cs" />
+    <Compile Include="DomainModel\vwGetBudgetBy.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="DomailModel.cd" />
+    <None Include="Services\Infocom.IT.Department.pfx" />
+    <Content Include="nhvalidator.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Services\TaskManagement.svc" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimeManager.Core.Resources\TimeManager.Core.Resources.csproj">
+      <Project>{52CA6BB5-ADA9-44B3-A40B-41791C75B12D}</Project>
+      <Name>TimeManager.Core.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

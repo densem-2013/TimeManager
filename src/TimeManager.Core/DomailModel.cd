@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Infocom.TimeManager.Core.DomainModel.Employee">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <Members>
+      <Field Name="_tasks" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Manager" Type="Infocom.TimeManager.Core.DomainModel.Employee">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.38" Y="0.268" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="Subordinates" Type="Infocom.TimeManager.Core.DomainModel.Employee" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="2.032" Y="2.5" />
+        <Point X="2.032" Y="2.125" />
+        <Point X="1.125" Y="2.125" />
+        <Point X="1.125" Y="3.203" />
+        <Point X="1.5" Y="3.203" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAgAAEAAAAAAAAAAACACAAAQGCAAhIEAAAAYAAAAAQg=</HashCode>
+      <FileName>DomainModel\Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Manager" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Subordinates" />
+      <Property Name="Tasks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Infocom.TimeManager.Core.DomainModel.Project">
+    <Position X="9" Y="4.5" Width="2.5" />
+    <Members>
+      <Field Name="_currentStatus" Hidden="true" />
+      <Method Name="Project" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>QAgAAAIAAEAgEAAAAAAgAAQUCAAAAAEACAAIAAAgBAA=</HashCode>
+      <FileName>DomainModel\Project.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentStatus" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tasks" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Infocom.TimeManager.Core.DomainModel.Status">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DomainModel\Status.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ApplicableTo" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Infocom.TimeManager.Core.DomainModel.Task">
+    <Position X="5" Y="2.5" Width="2.5" />
+    <Members>
+      <Field Name="_assignedEmployees" Hidden="true" />
+      <Field Name="_assignedEmployeesCollection" Hidden="true" />
+      <Field Name="_currentStatus" Hidden="true" />
+      <Field Name="_project" Hidden="true" />
+      <Method Name="Task" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <AssociationLine Name="AssignedEmployees" Type="Infocom.TimeManager.Core.DomainModel.Employee">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.131" Y="0.05" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <AssociationLine Name="CurrentStatus" Type="Infocom.TimeManager.Core.DomainModel.Status" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.188" Y="2.5" />
+        <Point X="6.188" Y="1" />
+        <Point X="11.75" Y="1" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ParentTask" Type="Infocom.TimeManager.Core.DomainModel.Task">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.287" Y="0.247" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAABiEAAGAKAgGEQAAQAAAEAACAAAAEAAACA=</HashCode>
+      <FileName>DomainModel\Task.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="CurrentStatus" />
+      <Property Name="ParentTask" />
+      <Property Name="Project" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="AssignedEmployees" />
+      <Property Name="TimeRecords" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Infocom.TimeManager.Core.DomainModel.TimeRecord">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <Members>
+      <Method Name="TimeRecord" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Employee" Type="Infocom.TimeManager.Core.DomainModel.Employee">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.411" Y="0.133" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAACAAAIAAAAEAAAEAAAAA=</HashCode>
+      <FileName>DomainModel\TimeRecord.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Employee" />
+      <Property Name="Task" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="Infocom.TimeManager.Core.DomainModel.DomailEntityType">
+    <Position X="12" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAEAAAAAAAAA=</HashCode>
+      <FileName>DomainModel\DomailEntityType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Infocom.TimeManager.Core.ProjectPriority">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABCAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectPriority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

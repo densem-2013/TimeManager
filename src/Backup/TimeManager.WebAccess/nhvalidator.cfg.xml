@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- NHibernate.Validator Configuration -->
+<nhv-configuration xmlns='urn:nhv-configuration-1.0'>
+  <property name='apply_to_ddl'>true</property>
+  <property name='autoregister_listeners'>true</property>
+  <property name='default_validator_mode'>UseAttribute</property>
+  <property name="message_interpolator_class">Infocom.TimeManager.Core.DomainModel.Validators.MessageInterpolator, Infocom.TimeManager.Core</property>
+  <mapping assembly='Infocom.TimeManager.Core'/>
+</nhv-configuration>

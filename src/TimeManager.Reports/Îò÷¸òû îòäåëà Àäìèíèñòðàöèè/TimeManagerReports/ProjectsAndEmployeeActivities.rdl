@@ -1,0 +1,1231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="MainDataSource">
+      <DataSourceReference>srv-team</DataSourceReference>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+      <rd:DataSourceID>d8e95554-131c-4321-aabe-9b3f19d1820a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="ProjectsReport">
+      <Query>
+        <DataSourceName>MainDataSource</DataSourceName>
+        <QueryParameters>
+          <QueryParameter Name="@startDate">
+            <Value>=Parameters!startDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@finishDate">
+            <Value>=Parameters!finishDate.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@departmentID">
+            <Value>=Parameters!departmentID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>reports.prAllProjectsWithEmployeeTimeRecords</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="EmployeeID">
+          <DataField>EmployeeID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="ProjectID">
+          <DataField>ProjectID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="FIO">
+          <DataField>FIO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectTypeName">
+          <DataField>ProjectTypeName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ProjectName">
+          <DataField>ProjectName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TaskName">
+          <DataField>TaskName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="StartDate">
+          <DataField>StartDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SpentTime">
+          <DataField>SpentTime</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+    <DataSet Name="Department">
+      <Query>
+        <DataSourceName>MainDataSource</DataSourceName>
+        <CommandText>SELECT
+  Department.ID
+  ,Department.ShortName
+ FROM
+  Department</CommandText>
+        <rd:DesignerState><QueryDefinition xmlns="http://schemas.microsoft.com/ReportingServices/QueryDefinition/Relational"><SelectedColumns><ColumnExpression ColumnOwner="Department" ColumnName="ID" /><ColumnExpression ColumnOwner="Department" ColumnName="Name" /><ColumnExpression ColumnOwner="Department" ColumnName="ShortName" /><ColumnExpression ColumnOwner="Department" ColumnName="ManagerId" /></SelectedColumns></QueryDefinition></rd:DesignerState>
+      </Query>
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Int64</rd:TypeName>
+        </Field>
+        <Field Name="ShortName">
+          <DataField>ShortName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="Tablix1">
+            <TablixCorner>
+              <TablixCornerRows>
+                <TablixCornerRow>
+                  <TablixCornerCell>
+                    <CellContents>
+                      <Textbox Name="Textbox7">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Тип проекта</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox7</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#7292cc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#4c68a2</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixCornerCell>
+                  <TablixCornerCell>
+                    <CellContents>
+                      <Textbox Name="Textbox5">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Наименование проекта</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox5</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#7292cc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#4c68a2</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixCornerCell>
+                  <TablixCornerCell>
+                    <CellContents>
+                      <Textbox Name="Textbox3">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Наименование задания</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontSize>11pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox3</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#7292cc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#4c68a2</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixCornerCell>
+                  <TablixCornerCell>
+                    <CellContents>
+                      <Textbox Name="Textbox13">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Итого</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox13</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#7292cc</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#4c68a2</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixCornerCell>
+                </TablixCornerRow>
+              </TablixCornerRows>
+            </TablixCorner>
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>16.79792mm</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SpentTime">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(Fields!SpentTime.Value = 0,"",
+IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <Color>=IIf(IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)
+&amp;""&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")="00:00","Red","#4d4d4d")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SpentTime</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e5e5e5</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox19">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(Fields!SpentTime.Value = 0,"",
+IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=IIf(IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)
+&amp;""&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")="00:00","White","#4d4d4d")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox19</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#e6eefc</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#c6daf8</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox16">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(Fields!SpentTime.Value = 0,"",
+IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60))</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>=IIf(IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)
+&amp;""&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")="00:00","White","#4d4d4d")</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox16</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#c6daf8</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#9eb6e4</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>6mm</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox12">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)</Value>
+                                  <Style>
+                                    <FontFamily>Tahoma</FontFamily>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style />
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox12</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>#9eb6e4</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#7292cc</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="FIO">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!FIO.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!FIO.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>6mm</Size>
+                    <CellContents>
+                      <Textbox Name="FIO">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!FIO.Value</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontSize>8pt</FontSize>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>#465678</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>FIO</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#c6daf8</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#9eb6e4</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                          <WritingMode>Rotate270</WritingMode>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <Visibility>
+                    <Hidden>=IIF(Fields!FIO.Value="",True,False)</Hidden>
+                  </Visibility>
+                </TablixMember>
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <Group Name="ProjectTypeName">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!ProjectTypeName.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!ProjectTypeName.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <TablixHeader>
+                    <Size>31.08542mm</Size>
+                    <CellContents>
+                      <Textbox Name="ProjectTypeName">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>=Fields!ProjectTypeName.Value</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>#465678</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>ProjectTypeName</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#c6daf8</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#9eb6e4</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <Group Name="ProjectName">
+                        <GroupExpressions>
+                          <GroupExpression>=Fields!ProjectName.Value</GroupExpression>
+                        </GroupExpressions>
+                      </Group>
+                      <SortExpressions>
+                        <SortExpression>
+                          <Value>=Fields!ProjectName.Value</Value>
+                        </SortExpression>
+                      </SortExpressions>
+                      <TablixHeader>
+                        <Size>50.66458mm</Size>
+                        <CellContents>
+                          <Textbox Name="ProjectName">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>=Fields!ProjectName.Value</Value>
+                                    <Style>
+                                      <FontFamily>Tahoma</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>#4c68a2</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>ProjectName</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>#e6eefc</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <BackgroundColor>#c6daf8</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <Group Name="TaskName">
+                            <GroupExpressions>
+                              <GroupExpression>=Fields!TaskName.Value</GroupExpression>
+                            </GroupExpressions>
+                          </Group>
+                          <SortExpressions>
+                            <SortExpression>
+                              <Value>=Fields!TaskName.Value</Value>
+                            </SortExpression>
+                          </SortExpressions>
+                          <TablixHeader>
+                            <Size>51.72292mm</Size>
+                            <CellContents>
+                              <Textbox Name="TaskName">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>=Fields!TaskName.Value</Value>
+                                        <Style>
+                                          <FontFamily>Tahoma</FontFamily>
+                                          <FontWeight>Bold</FontWeight>
+                                          <Color>#4c68a2</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>TaskName</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>White</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>#e6eefc</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>25mm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox17">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <FontWeight>Bold</FontWeight>
+                                              <Color>#4c68a2</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox17</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>White</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>#e6eefc</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                              <TablixMembers>
+                                <TablixMember />
+                              </TablixMembers>
+                            </TablixMember>
+                          </TablixMembers>
+                          <Visibility>
+                            <Hidden>=IIf(Fields!ProjectName.Value = "",True,False)</Hidden>
+                          </Visibility>
+                        </TablixMember>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>51.72292mm</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox18">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value>Итого</Value>
+                                        <Style>
+                                          <FontFamily>Tahoma</FontFamily>
+                                          <FontWeight>Bold</FontWeight>
+                                          <Color>#4c68a2</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox18</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>#e6eefc</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>#c6daf8</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>25mm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox20">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <FontWeight>Bold</FontWeight>
+                                              <Color>#4c68a2</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox20</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>#e6eefc</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>#c6daf8</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                            </TablixMember>
+                          </TablixMembers>
+                          <Visibility>
+                            <Hidden>=IIf(Fields!ProjectName.Value = "",True,False)</Hidden>
+                          </Visibility>
+                          <KeepWithGroup>Before</KeepWithGroup>
+                        </TablixMember>
+                      </TablixMembers>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                        <ToggleItem>ProjectTypeName</ToggleItem>
+                      </Visibility>
+                    </TablixMember>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>50.66458mm</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox14">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value>Итого</Value>
+                                    <Style>
+                                      <FontFamily>Tahoma</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>#465678</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Textbox14</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>#c6daf8</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <BackgroundColor>#9eb6e4</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>51.72292mm</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox15">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value />
+                                        <Style>
+                                          <FontFamily>Tahoma</FontFamily>
+                                          <FontWeight>Bold</FontWeight>
+                                          <Color>#465678</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox15</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>#c6daf8</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>#9eb6e4</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>25mm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox21">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <FontWeight>Bold</FontWeight>
+                                              <Color>#465678</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox21</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>#c6daf8</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>#9eb6e4</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                      <Visibility>
+                        <Hidden>=IIf(Fields!ProjectName.Value = "",True,False)</Hidden>
+                      </Visibility>
+                      <KeepWithGroup>Before</KeepWithGroup>
+                    </TablixMember>
+                  </TablixMembers>
+                </TablixMember>
+                <TablixMember>
+                  <TablixHeader>
+                    <Size>31.08542mm</Size>
+                    <CellContents>
+                      <Textbox Name="Textbox9">
+                        <CanGrow>true</CanGrow>
+                        <KeepTogether>true</KeepTogether>
+                        <Paragraphs>
+                          <Paragraph>
+                            <TextRuns>
+                              <TextRun>
+                                <Value>Итого</Value>
+                                <Style>
+                                  <FontFamily>Tahoma</FontFamily>
+                                  <FontWeight>Bold</FontWeight>
+                                  <Color>White</Color>
+                                </Style>
+                              </TextRun>
+                            </TextRuns>
+                            <Style />
+                          </Paragraph>
+                        </Paragraphs>
+                        <rd:DefaultName>Textbox9</rd:DefaultName>
+                        <Style>
+                          <Border>
+                            <Color>#9eb6e4</Color>
+                            <Style>Solid</Style>
+                          </Border>
+                          <BackgroundColor>#7292cc</BackgroundColor>
+                          <PaddingLeft>2pt</PaddingLeft>
+                          <PaddingRight>2pt</PaddingRight>
+                          <PaddingTop>2pt</PaddingTop>
+                          <PaddingBottom>2pt</PaddingBottom>
+                        </Style>
+                      </Textbox>
+                    </CellContents>
+                  </TablixHeader>
+                  <TablixMembers>
+                    <TablixMember>
+                      <TablixHeader>
+                        <Size>50.66458mm</Size>
+                        <CellContents>
+                          <Textbox Name="Textbox10">
+                            <CanGrow>true</CanGrow>
+                            <KeepTogether>true</KeepTogether>
+                            <Paragraphs>
+                              <Paragraph>
+                                <TextRuns>
+                                  <TextRun>
+                                    <Value />
+                                    <Style>
+                                      <FontFamily>Tahoma</FontFamily>
+                                      <FontWeight>Bold</FontWeight>
+                                      <Color>White</Color>
+                                    </Style>
+                                  </TextRun>
+                                </TextRuns>
+                                <Style />
+                              </Paragraph>
+                            </Paragraphs>
+                            <rd:DefaultName>Textbox10</rd:DefaultName>
+                            <Style>
+                              <Border>
+                                <Color>#9eb6e4</Color>
+                                <Style>Solid</Style>
+                              </Border>
+                              <BackgroundColor>#7292cc</BackgroundColor>
+                              <PaddingLeft>2pt</PaddingLeft>
+                              <PaddingRight>2pt</PaddingRight>
+                              <PaddingTop>2pt</PaddingTop>
+                              <PaddingBottom>2pt</PaddingBottom>
+                            </Style>
+                          </Textbox>
+                        </CellContents>
+                      </TablixHeader>
+                      <TablixMembers>
+                        <TablixMember>
+                          <TablixHeader>
+                            <Size>51.72292mm</Size>
+                            <CellContents>
+                              <Textbox Name="Textbox11">
+                                <CanGrow>true</CanGrow>
+                                <KeepTogether>true</KeepTogether>
+                                <Paragraphs>
+                                  <Paragraph>
+                                    <TextRuns>
+                                      <TextRun>
+                                        <Value />
+                                        <Style>
+                                          <FontFamily>Tahoma</FontFamily>
+                                          <FontWeight>Bold</FontWeight>
+                                          <Color>White</Color>
+                                        </Style>
+                                      </TextRun>
+                                    </TextRuns>
+                                    <Style />
+                                  </Paragraph>
+                                </Paragraphs>
+                                <rd:DefaultName>Textbox11</rd:DefaultName>
+                                <Style>
+                                  <Border>
+                                    <Color>#9eb6e4</Color>
+                                    <Style>Solid</Style>
+                                  </Border>
+                                  <BackgroundColor>#7292cc</BackgroundColor>
+                                  <PaddingLeft>2pt</PaddingLeft>
+                                  <PaddingRight>2pt</PaddingRight>
+                                  <PaddingTop>2pt</PaddingTop>
+                                  <PaddingBottom>2pt</PaddingBottom>
+                                </Style>
+                              </Textbox>
+                            </CellContents>
+                          </TablixHeader>
+                          <TablixMembers>
+                            <TablixMember>
+                              <TablixHeader>
+                                <Size>25mm</Size>
+                                <CellContents>
+                                  <Textbox Name="Textbox22">
+                                    <CanGrow>true</CanGrow>
+                                    <KeepTogether>true</KeepTogether>
+                                    <Paragraphs>
+                                      <Paragraph>
+                                        <TextRuns>
+                                          <TextRun>
+                                            <Value>=IIF(CStr(Sum(Fields!SpentTime.Value)\36000000000)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\36000000000)
+&amp;":"&amp;
+IIF(CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)&lt;10,"0","")
+&amp;""&amp;
+CStr(Sum(Fields!SpentTime.Value)\600000000 Mod 60)</Value>
+                                            <Style>
+                                              <FontFamily>Tahoma</FontFamily>
+                                              <FontWeight>Bold</FontWeight>
+                                              <Color>White</Color>
+                                            </Style>
+                                          </TextRun>
+                                        </TextRuns>
+                                        <Style />
+                                      </Paragraph>
+                                    </Paragraphs>
+                                    <rd:DefaultName>Textbox22</rd:DefaultName>
+                                    <Style>
+                                      <Border>
+                                        <Color>#9eb6e4</Color>
+                                        <Style>Solid</Style>
+                                      </Border>
+                                      <BackgroundColor>#7292cc</BackgroundColor>
+                                      <PaddingLeft>2pt</PaddingLeft>
+                                      <PaddingRight>2pt</PaddingRight>
+                                      <PaddingTop>2pt</PaddingTop>
+                                      <PaddingBottom>2pt</PaddingBottom>
+                                    </Style>
+                                  </Textbox>
+                                </CellContents>
+                              </TablixHeader>
+                            </TablixMember>
+                          </TablixMembers>
+                        </TablixMember>
+                      </TablixMembers>
+                    </TablixMember>
+                  </TablixMembers>
+                  <KeepWithGroup>Before</KeepWithGroup>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <FixedRowHeaders>true</FixedRowHeaders>
+            <DataSetName>ProjectsReport</DataSetName>
+            <Top>21.2725mm</Top>
+            <Left>0mm</Left>
+            <Height>30mm</Height>
+            <Width>175.27084mm</Width>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+            </Style>
+          </Tablix>
+          <Textbox Name="ReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Отчёт о работе сотрудников за период с </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Str(Day(Parameters!startDate.Value))+"."+Left("0"+Trim(Str(Month(Parameters!startDate.Value))),2)+"."+Str(Year(Parameters!startDate.Value))</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value> по  </Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Str(Day(Parameters!finishDate.Value))+"."+Left("0"+Trim(Str(Month(Parameters!finishDate.Value))),2)+"."+Str(Year(Parameters!finishDate.Value))</Value>
+                    <Style>
+                      <FontStyle>Normal</FontStyle>
+                      <FontFamily>Tahoma</FontFamily>
+                      <FontSize>20pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <TextDecoration>None</TextDecoration>
+                      <Color>SteelBlue</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <rd:WatermarkTextbox>Title</rd:WatermarkTextbox>
+            <rd:DefaultName>ReportTitle</rd:DefaultName>
+            <Top>0mm</Top>
+            <Height>19.86139mm</Height>
+            <Width>276.07709mm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <VerticalAlign>Middle</VerticalAlign>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
+        </ReportItems>
+        <Height>57.15mm</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>276.07709mm</Width>
+      <Page>
+        <PageHeight>297mm</PageHeight>
+        <PageWidth>210mm</PageWidth>
+        <LeftMargin>20mm</LeftMargin>
+        <RightMargin>20mm</RightMargin>
+        <TopMargin>20mm</TopMargin>
+        <BottomMargin>20mm</BottomMargin>
+        <ColumnSpacing>0.13cm</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="startDate">
+      <DataType>DateTime</DataType>
+      <Prompt>Начало периода</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="finishDate">
+      <DataType>DateTime</DataType>
+      <Prompt>Окончание периода</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="departmentID">
+      <DataType>Integer</DataType>
+      <Prompt>Департамент</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>Department</DataSetName>
+          <ValueField>ID</ValueField>
+          <LabelField>ShortName</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+  </ReportParameters>
+  <rd:ReportUnitType>Mm</rd:ReportUnitType>
+  <rd:ReportID>05df3795-337d-462c-be91-b54e4ca3baf0</rd:ReportID>
+</Report>

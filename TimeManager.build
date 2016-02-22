@@ -1,0 +1,39 @@
+<Project
+  DefaultTargets="Default"
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<ProjectName>Infocom.TimeManager</ProjectName>
+		<WorkDir>.</WorkDir>
+		<NUnit>lib\testing\nunit</NUnit>
+		<TestUnitReportPath>Reports\$(ProjectName)</TestUnitReportPath>
+		<TestUnitReportPostfix>.tests.report.xml</TestUnitReportPostfix>		
+		<Core_Tests>src\TimeManager.Core.Tests\bin\Debug\Infocom.TimeManager.Core.Tests.dll</Core_Tests>		
+		<WebAccess_Tests>src\TimeManager.WebAccess.Tests\bin\Debug\Infocom.TimeManager.WebAccess.Tests.dll</WebAccess_Tests>		
+	</PropertyGroup>
+	<ItemGroup>
+		<TimeManager Include="src\TimeManager.vs2010.sln"/>
+	</ItemGroup>
+	
+	<UsingTask TaskName="NUnit" AssemblyFile="lib\Microsoft\MsBuild\MSBuild.Community.Tasks.dll " />
+
+    <Target Name="Default" DependsOnTargets ="RunAll"/>
+    <Target Name="RunAll" DependsOnTargets ="BuildAll;TestAll"/>
+	<Target Name="BuildAll" DependsOnTargets ="Core"/>
+	
+	<Target Name="Core">
+		<MSBuild Projects="@(TimeManager)"
+				 Properties="Configuration=$(Configuration)"/>
+	</Target>
+	
+	<!-- Run Unit tests -->
+	<Target Name="TestAll" DependsOnTargets="BuildAll">
+		<CreateItem Include="**\bin\debug\*.Tests*dll">
+			<Output TaskParameter="Include" ItemName="TestAssembly" />
+		</CreateItem>
+	    <Exec Command ="rd /Q /S reports"/>
+		<Exec Command ="mkdir reports"/>
+		<NUnit ToolPath="$(NUnit)" Force32Bit="true" Assemblies="@(TestAssembly)"
+			   OutputXmlFile="$(TestUnitReportPath).Core.$(TestUnitReportPostfix)"/>
+	</Target>
+</Project>

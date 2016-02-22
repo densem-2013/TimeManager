@@ -1,0 +1,145 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">--%>
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=IE8" />
+    <link href="../../Content/Site.css" rel="stylesheet" type="text/css" />
+    <%= Html.Telerik().StyleSheetRegistrar().DefaultGroup(group => group.Add("telerik.common.css").Add("telerik.vista.css"))%>
+    <script type="text/javascript" src="../../Scripts/InfocomTools.js"></script>
+</head>
+<body class="pagebg" >
+    <div class="wrapper toppad">
+        <div class="tophead">
+            <div class="dleft">
+                <div class="dright">
+                    <h1 class="logo">
+                        <a href="">
+                            <img style="border: 0" src="<%: Links.Content.Images.Infocom_Logo_png %>" title="Инфоком ЛТД"
+                                alt="Инфоком ЛТД" />
+                        </a>
+                    </h1>
+                    <div class="tophead_i1">
+                        <div class="blockinform">
+                            <div class="dleft">
+                                <div class="dright">
+                                    <div class="logOnGreeting" style="text-align: right;">
+                                        <% if (Request.IsAuthenticated)
+                                           {
+                                        %>Вы вошли как, <b>
+                                           <%: this.Session["userFullName"] ?? "?"%></b>
+                                           (<i><%: this.Session["userName"] ?? "none"%></i>)
+                                            <% 
+                                           }%>
+                                            [
+                                            <%
+                                                if (Request.IsAuthenticated)
+                                                {
+                                            %>
+                                            <%: Html.ActionLink("Выход", "LogOff", "Account") %>
+                                            <%
+                                                }
+                                                else
+                                                {
+                                            %>
+                                            <%: Html.ActionLink("Вход", "LogOn", "Account") %>
+                                            <%
+                                                }
+                                            %>]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="menucontainer">
+                        <ul id="menu">
+                         <% if (this.Session["userDepartmentId"] != null)
+                            {
+                                if (((bool)this.Session["RequestPermission"]) || Roles.IsUserInRole("TimeManagerAdministrators"))
+                                {
+                                    %>                                     
+                                        <li>
+                                            <%: Html.ActionLink("Договора", MVC.Contracts.Index())%>
+                                        </li> 
+                                        <li>
+                                            <%: Html.ActionLink("Заявки", MVC.Requests.Index())%>
+                                        </li> 
+                               <%}%>
+                                        <li>
+                                            <%: Html.ActionLink("Проекты", MVC.ProjectsOverview.Index())%>
+                                        </li>
+                                    <%
+                               
+                                if ((bool)this.Session["TimeregPermission"])
+                                { 
+                                  %>
+                                    <li>
+                                        <%: Html.ActionLink("Регистрация времени", MVC.TimeRegistration.Index())%>
+                                    </li>
+                                  <%  
+                                }
+                                if (Roles.IsUserInRole("TimeManagerAdministrators") || (bool)this.Session["HumanResource"])
+                                {
+                                    %>
+                                    <li>
+                                        <%: Html.ActionLink("Сотрудники", MVC.Employee.Index())%>
+                                    </li>
+                                    <li>
+                                      <%--  <% if (Request.UserAgent.IndexOf("Chrome") > -1)
+                                           {
+                                               %>
+                                                <a href="/Requests/ViewReports">Отчёты</a> 
+                                               <%
+                                           }
+                                           else 
+                                           { 
+                                               %>--%>
+                                               <%if (Roles.IsUserInRole("TimeManagerAdministrators"))
+                                                 { %>
+                                                <a href="/Reports">Отчёты</a> 
+                                                <% } %>
+                                          <%--     <%
+                                           } %>--%>
+                                        
+                                    </li>
+                                    <%
+                                }
+                            }%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page">
+            <div class="dleft">
+                <div class="dright">
+                    <div id="submenu">
+                        <asp:ContentPlaceHolder ID="Path" runat="server" />
+                    </div>
+                    <div class="main_content_background">
+                        <div class="main_content">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+                        </div>
+                    </div>
+                    <div id="footer">
+                        Copyright 2012 INFOCOM Ltd. Все права защищены.&nbsp;
+                       <br />
+                        <small><%= Request.ServerVariables["LOCAL_ADDR"].ToString() %></small>
+ 
+                </div>
+            </div>
+        </div>   </div>
+
+        <%= Html.Telerik()
+                    .ScriptRegistrar()
+                   .DefaultGroup(group => group
+                                     .Add("jquery.validate.min.js")
+                         .Compress(true))
+                  .Globalization(true)%>
+                  <%:Html.Telerik().ScriptRegistrar().DefaultGroup(group => group.Add("telerik.common.js").Add("telerik.datepicker.js"))%>
+ </body>
+</html>

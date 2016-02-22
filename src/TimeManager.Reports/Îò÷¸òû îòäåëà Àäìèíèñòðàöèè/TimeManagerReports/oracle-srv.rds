@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="oracle-srv">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=oracle-srv;Initial Catalog=TimeManager</ConnectString>
+    <Prompt>Specify a user name and password for data source oracle-srv:</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>88b6b346-17a1-48c4-aa84-67bc3417771c</DataSourceID>
+</RptDataSource>
