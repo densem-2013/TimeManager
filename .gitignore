@@ -10,4 +10,4 @@ syntax: glob
 */*.db
 */*vs10x*
 */*hibernate.cfg.xml*
-.hg/*
+/.hg/*

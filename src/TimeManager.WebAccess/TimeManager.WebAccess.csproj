@@ -22,6 +22,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,14 +62,59 @@
     <Reference Include="AutoMapper, Version=2.0.0.4, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\lib\Mapping\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="AV.Infrastructure.CommonInterfaces">
+      <HintPath>..\packages\Av.Infrastructure.CommonInterfaces.1.2.123.0\lib\AV.Infrastructure.CommonInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AV.Infrastructure.Site">
+      <HintPath>..\packages\Av.Infrastructure.Web.1.2.133.0\lib\AV.Infrastructure.Site.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\lib\ORM\NHibernate\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="CommonServiceLocator.NinjectAdapter">
       <HintPath>..\..\lib\IOC\Ninject\extensions\CommonServiceLocator.NinjectAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="DD4T.ContentModel">
+      <HintPath>..\packages\DD4T.Model.2.0.7.28-alpha\lib\net40\DD4T.ContentModel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DD4T.ContentModel.Contracts">
+      <HintPath>..\packages\DD4T.Model.2.0.7.28-alpha\lib\net40\DD4T.ContentModel.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DD4T.ContentModel.XmlSerializers">
+      <HintPath>..\packages\DD4T.Model.2.0.7.28-alpha\lib\net40\DD4T.ContentModel.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="DD4T.Core.Contracts">
+      <HintPath>..\packages\DD4T.Core.2.0.8.119-alpha\lib\net40\DD4T.Core.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="DD4T.DI.Ninject">
+      <HintPath>..\packages\DD4T.DI.Ninject.2.0.7\lib\net40\DD4T.DI.Ninject.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DD4T.Factories">
+      <HintPath>..\packages\DD4T.Core.2.0.8.119-alpha\lib\net40\DD4T.Factories.dll</HintPath>
+    </Reference>
+    <Reference Include="DD4T.Serialization">
+      <HintPath>..\packages\DD4T.Model.2.0.7.28-alpha\lib\net40\DD4T.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DD4T.Utils">
+      <HintPath>..\packages\DD4T.Core.2.0.8.119-alpha\lib\net40\DD4T.Utils.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DD4T.ViewModels">
+      <HintPath>..\packages\DD4T.Core.2.0.8.119-alpha\lib\net40\DD4T.ViewModels.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\lib\ORM\NHibernate\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Infrastructure.T4MVC">
+      <HintPath>..\packages\Av.Infrastructure.Web.1.2.133.0\lib\Infrastructure.T4MVC.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\..\lib\ORM\NHibernate.Validation\log4net.dll</HintPath>
@@ -74,8 +123,22 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\lib\IOC\Ninject\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc">
+      <HintPath>..\packages\Mvc3Futures.3.0.20105.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Samples.ImageSprite">
       <HintPath>..\..\lib\ImageOptimizationFramework\Microsoft.Web.Samples.ImageSprite.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib">
+      <HintPath>..\packages\MvcContrib.Mvc3-ci.3.0.74.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\..\lib\ORM\NHibernate\NHibernate.dll</HintPath>
@@ -88,9 +151,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\ORM\NHibernate.Validation\NHibernate.Validator.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject, Version=2.1.0.90, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+    <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\lib\IOC\Ninject\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.2.3-unstable-012\lib\net40\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.MockingKernel">
       <HintPath>..\..\lib\IOC\Ninject\extensions\Ninject.MockingKernel.dll</HintPath>
@@ -98,11 +161,20 @@
     <Reference Include="Ninject.MockingKernel.Moq">
       <HintPath>..\..\lib\IOC\Ninject\extensions\Ninject.MockingKernel.Moq.dll</HintPath>
     </Reference>
-    <Reference Include="Ninject.Web.Common">
-      <HintPath>..\..\lib\IOC\Ninject\Ninject.Web.Common.dll</HintPath>
+    <Reference Include="Ninject.Web.Common, Version=3.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Ninject.Web.Common.3.0.2-unstable-9035\lib\net40-full\Ninject.Web.Common.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Web.Mvc">
-      <HintPath>..\..\lib\IOC\Ninject\extensions\Ninject.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\Ninject.MVC3.3.0.2-unstable-9019\lib\net40-full\Ninject.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.1.2\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorGenerator.Mvc">
+      <HintPath>..\packages\RazorGenerator.Mvc.1.4.0.0\lib\net40\RazorGenerator.Mvc.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -157,6 +229,13 @@
     <Reference Include="Telerik.Web.Mvc, Version=2012.1.214.340, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Telerik\MVC\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\packages\WebActivator.1.4.4\lib\net40\WebActivator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -348,6 +427,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UploadLocalization.zh-CN.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ContractsController.cs" />
     <Compile Include="Controllers\EmployeeRateController.cs" />
@@ -918,6 +999,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Infocom.IT.Department.pfx" />
+    <Content Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
